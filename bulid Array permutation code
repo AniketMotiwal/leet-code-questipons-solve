@@ -12,3 +12,18 @@ int* buildArray(int* nums, int numsSize, int* returnSize){
     
 
 }
+
+// optimization approach in c
+
+int* buildArray(int* nums, int numsSize, int* returnSize){
+  *returnSize =numsSize;
+  int* result=(int*) malloc(sizeof(int)*numsSize);
+  for(int i=0;i<numsSize;i++){
+      nums[i]=*returnSize*(nums[nums[i]]%*returnSize)+nums[i];
+  }
+  for(int i=0;i<*returnSize;i++)
+  {
+      nums[i]=nums[i]/ *returnSize;
+  }
+  return nums;
+    
